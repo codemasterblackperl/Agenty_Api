@@ -9,8 +9,10 @@ namespace Codemasters_Agenty.DataRepo
 {
     public interface IMyResumeRepo
     {
-        Task<MyResume> GetAsync(long id);
+        MyResume Get(long id);
 
-        Task<long> PostAsync(MyResume vm);
+        long Post(MyResume vm);
+
+        bool Delete(long id);
     }
 }

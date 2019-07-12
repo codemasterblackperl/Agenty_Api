@@ -10,14 +10,14 @@ namespace Codemasters_Agenty.Data
 {
     public class LDbContext
     {
-        private readonly LiteDatabase _context;
+        public readonly LiteDatabase LDb;
 
         public LDbContext(IOptions<LDbConfig> options)
         {
             try
             {
                 var db = new LiteDatabase(options.Value.ConnectionString);
-                _context = db;
+                LDb = db;
             }
             catch (Exception ex)
             {

@@ -10,8 +10,13 @@ namespace Codemasters_Agenty.Models
     {
         public long Id { get; set; }
         public string Name { get; set; }
+
+        public string Email { get; set; }
+
+        public string Phone { get; set; }
+
         public string Location { get; set; }
-        public string Skills { get; set; }
+        public string[] Skills { get; set; }
         public double Experiance { get; set; }
 
         //public List<Experiance> Experiances { get; set; }

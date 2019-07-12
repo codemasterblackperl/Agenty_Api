@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Codemasters_Agenty.Data;
 using Codemasters_Agenty.DataRepo;
+using Codemasters_Agenty.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -49,7 +50,8 @@ namespace Codemasters_Agenty
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
+            app.UseMiddleware<ExceptionMiddleware>();
             app.UseMvc();
         }
     }
