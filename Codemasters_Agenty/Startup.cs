@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Codemasters_Agenty.Data;
+using Codemasters_Agenty.DataRepo;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +27,12 @@ namespace Codemasters_Agenty
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<LDbContext, LDbContext>();
+
+            services.Configure<LDbConfig>(options => options.ConnectionString =
+            Configuration.GetConnectionString("LiteDbPath"));
+
+            services.AddScoped<IMyResumeRepo, MyResumeRepo>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
